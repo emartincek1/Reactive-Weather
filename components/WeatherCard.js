@@ -1,13 +1,28 @@
 import React from "react";
-import sunny from "../assets/Sunny.svg";
+import Sunny from "../assets/Sunny.svg";
+import Rainy from "../assets/Rainy.svg";
+import Cloudy from "../assets/Cloudy.svg";
+import PartlyCloudy from "../assets/PartlyCloudy.svg";
 
 function WeatherCard({ city }) {
+  const imgs = {
+    Sunny: Sunny,
+    Rainy: Rainy,
+    Cloudy: Cloudy,
+    PartlyCloudy: PartlyCloudy,
+    Snowy: Rainy,
+  };
+
   return (
     <div className="card">
       <div className="img-container">
         <img
           className="card-img-top"
-          src={sunny}
+          src={
+            imgs[
+              city.forecast === "Partly cloudy" ? "PartlyCloudy" : city.forecast
+            ]
+          }
           alt="Card image cap"
           id="icon"
         />
